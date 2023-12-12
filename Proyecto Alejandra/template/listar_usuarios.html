@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Jumbotron Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/jumbotron/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../static/assets/css/fondo.css">
+<link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+  </head>
+  <body>
+
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col-md-3">
+          <p>Welcome, {{ username }}!</p>
+        </div>
+          
+        <div class="col-md-3">
+          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+<!------LISTA DE USUARIOS---->
+
+
+{% if usuarios %}
+
+    <h1 class="text-center t">Lista de Usuarios</h1>
+<div class="caja">
+
+  <div class="col-md-4">
+    <h2>Usuarios</h2>
+    <p>editar y restablecer contraseñas de administradores</p>
+    <p><a class="btn btn-secondary" href="{{ url_for('registro') }}" role="button">View details &raquo;</a></p>
+  </div>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-success">Inicio super admin</a>
+  {% if mensaje %}
+        <div class="alert alert-danger" role="alert">
+            {{ mensaje}}
+          </div>
+          {% endif %}
+          <!----MENSAJE DE REGISTRO EXITOSO-->
+          {% if mensaje2 %}
+          <div class="alert alert-success text-center" role="alert">
+              {{ mensaje2}}
+            </div>
+            {% endif %}
+<table class="table table-striped">
+    <thead class="table-dark ">
+      <tr>
+        <th scope="col">Nº</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Password</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Sucursal</th>
+        <th scope="col">Boton</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for mostrar in usuarios %}
+        
+      <tr>
+        <th scope="row"> {{mostrar.id_usuario}}</th>
+        <td> {{mostrar.correo}} </td>
+        <td>{{mostrar.password}}</td>
+        <td>{{mostrar.nombre_rol}}</td>
+        <td>{{mostrar.nombre_sucursal}}</td>
+        <td>
+          <a href="{{ url_for('edit_usuario', id_usuario=mostrar.id_usuario) }}" class="btn btn-warning">Editar</a>
+          <a href="{{ url_for('delete_usuario', id_usuario=mostrar.id_usuario) }}" class="btn btn-danger">Eliminar</a>
+        </button>
+      </td>
+      </tr>
+      
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>no hay datos</p>
+{% endif %}
+</div>
+<!-------------FIN-->

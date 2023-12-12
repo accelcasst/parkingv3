@@ -1,0 +1,81 @@
+body{
+    /*fondo de pantalla*/
+    background-color: #1c1c1c;
+}
+h1{
+    /*titulos*/
+    font-weight: bold;
+    color: #e0a22c;
+}
+h2{
+  /*titulos*/
+  font-weight: bold;
+  color: #e0a22c;
+}
+.sensilla{
+    /*color de letras sobre casillas*/
+    font-size: medium;
+    font-weight: bold;
+    color: #e0a22c;
+}
+
+@keyframes cambiaColor {
+    /*Animacion de cambio de color*/
+    0% { background-color: #e0a22c; }
+    50% { background-color: #4c4424; }
+    100% { background-color: #e0a22c; }
+}
+  
+.btn-custom {
+    background-color: #e0a22c; /* Color inicial */
+    animation: cambiaColor 2s infinite; /* Animación infinita */
+}
+  
+.btn-custom:hover {
+    /*Detiene la animación al pasar el mouse */
+    animation-play-state: paused;  
+}
+
+@keyframes cambiarojo {
+      /*Animacion de cambio de color*/
+      0% { background-color: #7e0000; }
+      50% { background-color: #a00000; }
+      100% { background-color: #7e0000; }
+}
+.btn-rojo {
+      background-color: #ff0000; /* Color inicial */
+      animation: cambiarojo 2s infinite; /* Animación infinita */
+}
+    
+.btn-rojo:hover {
+  /*Detiene la animación al pasar el mouse */
+  animation-play-state: paused;  
+}
+.celdaConTextoLargo {
+  position: relative;
+  width: 100px; /* Ancho inicial de la celda */
+  white-space: nowrap; /* Evitar salto de línea */
+  overflow: hidden; /* Ocultar el exceso de texto */
+  text-overflow: ellipsis; /* Agregar puntos suspensivos al final del texto */
+}
+
+
+
+th{
+  color: #e0a22c;
+}
+td{
+  color: #e0a22c;
+}
+p{
+    /*color de letras sobre casillas*/
+    font-size: medium;
+    font-weight: bold;
+    color: #e0a22c;
+}
+
+.menu{
+  padding: 2%;
+  background-color: #cccccc; /* Color inicial */
+  
+}
