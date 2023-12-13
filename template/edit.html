@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/jumbotron/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../static/assets/css/fondo.css">
   <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   
     <!-- Favicons -->
@@ -45,9 +46,22 @@
   </head>
 <body>
     <div class="container mt-5">
-        <h1>Edit Car Information
-          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        <h1>Carro
         </h1>
+      <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col-md-3">
+          <p>Bienvenido, {{ username }}!</p>
+        </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+      
         <form action="{{ url_for('pagar', car_id=car['id']) }}" method="post">
             <div class="form-group">
                 <label for="plate_number">Plate Number:</label>
@@ -66,7 +80,7 @@
                 <label for="Entrada">Salida:</label>
                 <input type="datetime-local" name="exit_time" required>
                 </div>
-            <button type="submit" class="btn btn-success mt-2">Save Changes</button>
+            <button type="submit" class="btn btn-success mt-2">Aplicar</button>
         </form>
     </div>
 
