@@ -335,15 +335,17 @@ def ticket(id_registro):
     
     # Generar código QR
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM cars WHERE id = %s", (id_registro,))
+    cur.execute('SELECT id FROM cars ORDER BY id DESC LIMIT 1')
     car = cur.fetchone()
+    home = request.url_root
+    data = f'{home}:5000/ticket/{car}'
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
         box_size=10,
         border=4,
     )
-    qr.add_data(car)
+    qr.add_data(data)
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
 
