@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/jumbotron/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../static/assets/css/fondo.css">
 <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Favicons -->
@@ -51,12 +52,17 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h2>Dashboard</h2>
-      <p>Welcome, {{ id }}!</p>
-      <p>Role: {{ id_rol }}</p>
-      <p>Branch: {{ id_sucursal }}</p>
-      <p>Branch: {{ username }}</p>
-      <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col-md-3">
+          <p>Bienvenido, {{ username }}!</p>
+        </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </div>
     <div class="container mt-5">
@@ -64,19 +70,19 @@
 
         <form action="{{ url_for('editsucursal', sucursal_id=sucursal['id_sucursal']) }}" method="post">
             <div class="form-group">
-                <label for="title">Descripción:</label>
+                <label for="title"><p>Descripción:</p></label>
                 <input type="text" name="descripcion" class="form-control" value="{{ sucursal['descripcion'] }}" required>
             </div>
             <div class="form-group">
-                <label for="author">C.P:</label>
+                <label for="author"><p>C.P:</p></label>
                 <input type="text" name="codigop" class="form-control" value="{{ sucursal['codigop'] }}" required>
             </div>
             <div class="form-group"> 
-                <label for="phone">Telefono</label><br><br>
+                <label for="phone"><p>Telefono</p></label><br><br>
           <input type="tel" id="tel" name="tel" placeholder="777-123-4856" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{ sucursal['tel'] }}"  required><br><br>
           <small>Formato: 777-123-4856</small><br><br></div>
            
-            <button type="submit" class="btn btn-success">Save Changes</button>
+            <button type="submit" class="btn btn-custom">Aplicar</button>
         </form>
     </div>
 
