@@ -45,6 +45,7 @@
     <link href="jumbotron.css" rel="stylesheet">
   </head>
 <body>
+  <div class="jumbotron">
     <div class="container mt-5">
         <h1>Carro
         </h1>
@@ -61,15 +62,16 @@
         </div>
       </div>
     </div>
-      
+      </div>
+
         <form action="{{ url_for('pagar', car_id=car['id']) }}" method="post">
             <div class="form-group">
-                <label for="plate_number">Plate Number:</label>
+                <label for="plate_number">Placa:</label>
                 <input type="text" name="Placa" class="form-control" value="{{ car['Placa'] }}" readonly required>
             </div>
             
             <div class="form-group">
-                <label for="entry_time">Entry Time:</label>
+                <label for="entry_time">Entrada:</label>
                 <input type="text" name="entry_time" class="form-control" value="{{ car['entry_time'] }}" readonly required>
             </div>
             <div class="form-group">
@@ -80,7 +82,7 @@
                 <label for="Entrada">Salida:</label>
                 <input type="datetime-local" name="exit_time" required>
                 </div>
-            <button type="submit" class="btn btn-success mt-2">Aplicar</button>
+            <button type="submit" class="btn btn-custom mt-2">Aplicar</button>
         </form>
     </div>
 
