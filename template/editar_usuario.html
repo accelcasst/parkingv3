@@ -6,11 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Jumbotron Template · Bootstrap</title>
+    <title>Edición</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/jumbotron/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../static/assets/css/fondo.css">
 <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Favicons -->
@@ -51,12 +52,17 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h2>Dashboard</h2>
-      <p>Welcome, {{ id }}!</p>
-      <p>Role: {{ id_rol }}</p>
-      <p>Branch: {{ id_sucursal }}</p>
-      <p>Branch: {{ username }}</p>
-      <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+      <div class="row">
+        <div class="col-md-3">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col-md-3">
+          <p>Bienvenido, {{ username }}!</p>
+        </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </div>
 <!-----FORMULARIO DE REGISTRO-->
@@ -72,19 +78,19 @@
           {% endif %}
       
    <div class="form-group ">
-    <label for="exampleInputEmail1 " class="t text-center">Nombre</label>
+    <label for="exampleInputEmail1 " class="t text-center"><p>Nombre</p></label>
     <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" value="{{ usuario.username }}" placeholder="nombre " name="nombre" disabled>
     
     </div> <br>       
 
   <div class="form-group ">
-    <label for="exampleInputEmail1 " class="t text-center">Correo</label>
+    <label for="exampleInputEmail1 " class="t text-center"><p>Correo</p></label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ usuario.correo }}" placeholder="Ingrese su Correo " name="txtCorreo" disabled>
     <small id="emailHelp" class="form-text text-muted"></small>
   </div> <br>
 
   <div class="form-group">
-    <label for="exampleInputPassword1 " class="t text-center">Contraseña</label>
+    <label for="exampleInputPassword1 " class="t text-center"><p>Contraseña</p></label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su Contraseña" name="txtPassword" value="{{ usuario.password}}">
   </div>
   <div class="input-group mb-3">
@@ -100,7 +106,7 @@
   </div>
     
   <div class="col">
-    <label for="sucursal">Sucursal</label>
+    <label for="sucursal"><p>Sucursal</p></label>
     <select name="sucursal" class="form-control" id="sucursal" required disabled>
         <option value="{{ usuario.id_sucursal}}">{{ usuario.nombre_sucursal}}</option>
         {% for sucursal in sucursals %}
@@ -116,7 +122,7 @@
 
   </div>
   <div class="text-center">
-  <button type="submit" class="btn btn-success">Registrar</button>
+  <button type="submit" class="btn btn-custom">Registrar</button>
 </div>
  
 </form>
