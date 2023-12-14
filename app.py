@@ -337,8 +337,9 @@ def ticket(id_registro):
     cur = mysql.connection.cursor()
     cur.execute('SELECT id FROM cars ORDER BY id DESC LIMIT 1')
     car = cur.fetchone()
+    car = car['id']
     home = request.url_root
-    data = f'{home}:5000/ticket/{car}'
+    data = f'{home}/ticket/{car}'
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_L,
