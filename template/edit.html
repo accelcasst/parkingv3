@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Jumbotron Template · Bootstrap</title>
+    <title>Pago</title>
   
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/jumbotron/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -66,20 +66,20 @@
 
         <form action="{{ url_for('pagar', car_id=car['id']) }}" method="post">
             <div class="form-group">
-                <label for="plate_number">Placa:</label>
+                <label for="plate_number"><p>Placa:</p></label>
                 <input type="text" name="Placa" class="form-control" value="{{ car['Placa'] }}" readonly required>
             </div>
             
             <div class="form-group">
-                <label for="entry_time">Entrada:</label>
+                <label for="entry_time"><p>Entrada:</p></label>
                 <input type="text" name="entry_time" class="form-control" value="{{ car['entry_time'] }}" readonly required>
             </div>
             <div class="form-group">
-                <label for="entry_time">Total:</label>
+                <label for="entry_time"><p>Total:</p></label>
                 <input type="text" name="Total" class="form-control" value="{{ car['total'] }}" readonly required>
             </div>
             <div class="form-group">
-                <label for="Entrada">Salida:</label>
+                <label for="Entrada"><p>Salida</p>:</label>
                 <input type="datetime-local" name="exit_time" required>
                 </div>
             <button type="submit" class="btn btn-custom mt-2">Aplicar</button>
